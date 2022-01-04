@@ -10,6 +10,8 @@ public class ButtonMain : MonoBehaviour
     protected float ColorChange;
     protected Color CurrentColor;
     protected Image Image;
+    protected bool IsPress = false;
+    private EventScript Event;
 
     // Start is called before the first frame update
     void Start()
@@ -18,12 +20,14 @@ public class ButtonMain : MonoBehaviour
         ScaleChange = new Vector3(0.01f, 0.01f);
         CurrentColor = new Color(1f,1f,1f,0.5f);
         ColorChange = 0.03f;
+        Event = GameObject.Find("Event 01").GetComponent<EventScript>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(CurrentColor);
+        //Debug.Log(CurrentColor);
     }
 
     public IEnumerator MouseInAnimation()
@@ -57,4 +61,13 @@ public class ButtonMain : MonoBehaviour
         Debug.Log("Out");
         StartCoroutine(MouseOutAnimation());
     }
+
+    public void MouseClick(VideoTime time)
+    {
+        Debug.Log("Clicked");
+        Event.RunChoice(time);
+        Event.Play();
+
+    }
+
 }

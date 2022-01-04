@@ -5,28 +5,33 @@ using UnityEngine.Video;
 
 public class VideoSeek : MonoBehaviour
 {
-    public int Minuntes;
-    public int Seconds;
-    public int Frames;
+    private int Minuntes;
+    private int Seconds;
+    private int Frames;
     private float Converter;
     public VideoPlayer CurrentVideo;
     // Start is called before the first frame update
 
     void Start()
     {
-        Converter = ((Minuntes * 60) + Seconds + (Frames / 100));
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.Space))
+        //Skip to Question 1
+        if (Input.GetKeyUp(KeyCode.Alpha1))
         {
-            CurrentVideo.time = Converter;
-            Debug.Log(Converter);
+            Convert(0, 15, 0);
         }
     }
 
+    void Convert(int Min,int Sec,int Frame)
+    {
+        Converter = ((Min * 60) + Sec + (Frame / 100));
+        CurrentVideo.time = Converter;
+
+    }
     void SkipTime()
     {
         CurrentVideo.time = Converter;

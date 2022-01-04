@@ -10,11 +10,8 @@ public class EventScript : MonoBehaviour
     private VideoSeek Seek;
     private VideoTimer Timer;
     private VideoPlayer Player;
-
-    // Start is called before the first frame update
-
-    [SerializeField]
-    public List<VideoTime> timeIndex = new List<VideoTime>();
+    private VideoTime timeIndex;
+    protected bool IsReChoice = false;
 
     void Start()
     {
@@ -29,22 +26,33 @@ public class EventScript : MonoBehaviour
         
     }
 
-    public void RunChoice(int index)
+    public void RunChoice(VideoTime time)
     {
-        Seek.SeekTime(this.Convert(timeIndex[0].Min, timeIndex[0].Sec, timeIndex[0].Frame));
+        Seek.SeekTime(this.Convert(time.Min, time.Sec, time.Frame));
     }
 
     public double Convert(int Min,int Sec,int Frame)
     {
-        double Time = ((Min * 60) + Sec + (Frame / 100));
+        double Time = ((Min * 60) + Sec + ((Frame / 25)*100));
         return Time;
     }
 
     public void Pause()
     {
-            Player.time = 18.11;
+        if (IsReChoice == false)
+        {
+            Debug.Log("Pause");
             Player.Pause();
+            IsReChoice = true;
         }
     }
 
+    public void GetTime()
+    {
+    }
 
+    public void Play()
+    {
+        Player.Play();
+    }
+}

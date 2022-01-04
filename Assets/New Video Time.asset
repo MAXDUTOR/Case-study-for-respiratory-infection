@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: New Video Time
   m_EditorClassIdentifier: 
   Min: 0
-  Sec: 0
+  Sec: 1
   Frame: 0

@@ -19,13 +19,7 @@ public class VideoTimer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(Player.time);
         EventAnimator.SetFloat("TimeStart", (float)Player.time);
-
-        if(Player.time > 18.11)
-        {
-            EventScript.Pause();
-        }
     }
 
     public double Time { get { return Player.time; } }
