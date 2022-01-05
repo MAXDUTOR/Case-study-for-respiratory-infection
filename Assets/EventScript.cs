@@ -11,6 +11,8 @@ public class EventScript : MonoBehaviour
     private VideoTimer Timer;
     private VideoPlayer Player;
     private VideoTime timeIndex;
+    public Animator ChoiceAnimator;
+
     protected bool IsReChoice = false;
 
     void Start()
@@ -28,13 +30,7 @@ public class EventScript : MonoBehaviour
 
     public void RunChoice(VideoTime time)
     {
-        Seek.SeekTime(this.Convert(time.Min, time.Sec, time.Frame));
-    }
-
-    public double Convert(int Min,int Sec,int Frame)
-    {
-        double Time = ((Min * 60) + Sec + ((Frame / 25)*100));
-        return Time;
+        Seek.SeekTime(Seek.Convert(time.Min,time.Sec,time.Frame));
     }
 
     public void Pause()
@@ -47,12 +43,13 @@ public class EventScript : MonoBehaviour
         }
     }
 
-    public void GetTime()
-    {
-    }
-
     public void Play()
     {
         Player.Play();
+    }
+
+    public void ButtonStart()
+    {
+
     }
 }

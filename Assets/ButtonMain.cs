@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class ButtonMain : MonoBehaviour
 {
+    public double ChoiceTime;
     public GameObject button;
     protected Vector3 ScaleChange;
     protected float ColorChange;
@@ -12,16 +13,18 @@ public class ButtonMain : MonoBehaviour
     protected Image Image;
     protected bool IsPress = false;
     private EventScript Event;
+    private Animator animator;
+    private Animator ChoiceAnimator;
+    public bool RightAnwser;
 
     // Start is called before the first frame update
     void Start()
     {
         Image = button.GetComponent<Image>();
         ScaleChange = new Vector3(0.01f, 0.01f);
-        CurrentColor = new Color(1f,1f,1f,0.5f);
-        ColorChange = 0.03f;
         Event = GameObject.Find("Event 01").GetComponent<EventScript>();
-
+        animator = GameObject.Find("Event 01").GetComponent<Animator>();
+        ChoiceAnimator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -30,13 +33,21 @@ public class ButtonMain : MonoBehaviour
         //Debug.Log(CurrentColor);
     }
 
+    public IEnumerator ChoicePlayTime()
+    {
+        yield return new WaitForSeconds(3.32f);
+        Debug.Log("Show");
+        ChoiceAnimator.SetTrigger("Show");
+        animator.SetTrigger("Show");
+
+
+    }
+
     public IEnumerator MouseInAnimation()
     {
         for (int i = 0; i < 15; i++)
         {
             button.transform.localScale += ScaleChange;
-            CurrentColor.a += ColorChange;
-            Image.color = CurrentColor;
             yield return null;
         }
 
@@ -46,28 +57,33 @@ public class ButtonMain : MonoBehaviour
         for (int i = 0; i < 15; i++)
         {
             button.transform.localScale -= ScaleChange;
-            CurrentColor.a -= ColorChange;
-            Image.color = CurrentColor;
             yield return null;
         }
     }
     public void MouseIn()
     {
-        Debug.Log("In");
         StartCoroutine(MouseInAnimation());
     }
+
     public void MouseOut()
     {
-        Debug.Log("Out");
         StartCoroutine(MouseOutAnimation());
     }
 
     public void MouseClick(VideoTime time)
     {
-        Debug.Log("Clicked");
         Event.RunChoice(time);
         Event.Play();
-
+        animator.SetTrigger("Hide");
+        animator.SetBool("First Time Play", false);
+        StartCoroutine(ChoicePlayTime());
     }
 
+    public void RemoveButton()
+    {
+        if (RightAnwser != true)
+        {
+            ChoiceAnimator.SetTrigger("Choosed");
+        }
+    }
 }
