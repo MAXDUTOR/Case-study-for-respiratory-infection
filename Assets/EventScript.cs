@@ -6,19 +6,15 @@ using UnityEngine.Video;
 
 public class EventScript : MonoBehaviour
 {
-    private float Converter;
-    private VideoSeek Seek;
     private VideoTimer Timer;
     private VideoPlayer Player;
-    private VideoTime timeIndex;
-    public Animator ChoiceAnimator;
+    public List<Animator> choiceanimator;
 
     protected bool IsReChoice = false;
 
     void Start()
     {
         Player = GameObject.Find("Demo-01-00.19.19.12").GetComponent<VideoPlayer>();
-        Seek = GameObject.Find("Video Player").GetComponent<VideoSeek>();
         Timer = GameObject.Find("Video Player").GetComponent<VideoTimer>();
     }
 
@@ -28,11 +24,6 @@ public class EventScript : MonoBehaviour
         
     }
 
-    public void RunChoice(VideoTime time)
-    {
-        Seek.SeekTime(Seek.Convert(time.Min,time.Sec,time.Frame));
-    }
-
     public void Pause()
     {
         if (IsReChoice == false)
@@ -40,7 +31,16 @@ public class EventScript : MonoBehaviour
             Debug.Log("Pause");
             Player.Pause();
             IsReChoice = true;
+
+            for (int i = 0; i < choiceanimator.Count; i++)
+            {
+                choiceanimator[i].SetBool("Show",true);
+                //choiceanimator[i].SetBool("Show",false);
+            }
+            
         }
+
+        
     }
 
     public void Play()
@@ -48,8 +48,6 @@ public class EventScript : MonoBehaviour
         Player.Play();
     }
 
-    public void ButtonStart()
-    {
 
-    }
+
 }

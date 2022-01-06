@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ButtonMain : MonoBehaviour
+public class ButtonMain : EventScript
 {
     public double ChoiceTime;
     public GameObject button;
@@ -25,6 +25,7 @@ public class ButtonMain : MonoBehaviour
         Event = GameObject.Find("Event 01").GetComponent<EventScript>();
         animator = GameObject.Find("Event 01").GetComponent<Animator>();
         ChoiceAnimator = GetComponent<Animator>();
+        
     }
 
     // Update is called once per frame
@@ -35,12 +36,15 @@ public class ButtonMain : MonoBehaviour
 
     public IEnumerator ChoicePlayTime()
     {
-        yield return new WaitForSeconds(3.32f);
+        yield return new WaitForSeconds((float)ChoiceTime);
         Debug.Log("Show");
         ChoiceAnimator.SetTrigger("Show");
         animator.SetTrigger("Show");
 
-
+        for (int i = 0; i < Event.choiceanimator.Count; i++)
+        {
+            Event.choiceanimator[i].SetBool("Show", true);
+        }
     }
 
     public IEnumerator MouseInAnimation()
@@ -70,11 +74,19 @@ public class ButtonMain : MonoBehaviour
         StartCoroutine(MouseOutAnimation());
     }
 
-    public void MouseClick(VideoTime time)
+    public void MouseClick(VideoTime_obj timeObj)
     {
-        Event.RunChoice(time);
+        timeObj.videoTime.GetTime();
         Event.Play();
-        animator.SetTrigger("Hide");
+        RemoveButton();
+        animator.SetBool("Show", false);
+
+
+        for (int i = 0; i < Event.choiceanimator.Count; i++) {
+            Event.choiceanimator[i].SetTrigger("Choosed");
+            Event.choiceanimator[i].SetBool("Show",false);
+                }
+
         animator.SetBool("First Time Play", false);
         StartCoroutine(ChoicePlayTime());
     }
@@ -85,5 +97,8 @@ public class ButtonMain : MonoBehaviour
         {
             ChoiceAnimator.SetTrigger("Choosed");
         }
+        else
+            ChoiceAnimator.SetBool("Show", false);
+
     }
 }

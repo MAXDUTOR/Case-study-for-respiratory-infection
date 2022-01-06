@@ -722,7 +722,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db879104e048627429b6785ee53496cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChoiceAnimator: {fileID: 0}
+  choiceanimator:
+  - {fileID: 1586773233}
+  - {fileID: 1411809075}
+  - {fileID: 2032953691}
 --- !u!1 &906489102
 GameObject:
   m_ObjectHideFlags: 0
@@ -902,7 +905,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1128277642}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.29653063, y: -4.8022766, z: 0}
+  m_LocalPosition: {x: -0.2965306, y: -4.802277, z: 0}
   m_LocalScale: {x: 0.01642036, y: 0.01642036, z: 0.01642036}
   m_Children:
   - {fileID: 609993135}
@@ -1115,9 +1118,9 @@ MonoBehaviour:
           m_MethodName: MouseClick
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 11400000, guid: e227ada7ddd46294688c1633a2c8260f,
+            m_ObjectArgument: {fileID: 11400000, guid: dbd3eaa370fccce45838a54e32ae8d1a,
               type: 2}
-            m_ObjectArgumentAssemblyTypeName: VideoTime, Assembly-CSharp
+            m_ObjectArgumentAssemblyTypeName: VideoTime_obj, Assembly-CSharp
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -1135,7 +1138,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ecb54e3329c26c4496ffbc4d0f5b707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChoiceTime: 0
+  choiceanimator: []
+  ChoiceTime: 3.32
   button: {fileID: 1411809067}
   RightAnwser: 0
 --- !u!114 &1411809074
@@ -1344,9 +1348,9 @@ MonoBehaviour:
           m_MethodName: MouseClick
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 11400000, guid: a5f47278a78758c41b86d4018f61156c,
+            m_ObjectArgument: {fileID: 11400000, guid: f771ef019cf96b94a97cdafd20e3f1a1,
               type: 2}
-            m_ObjectArgumentAssemblyTypeName: VideoTime, Assembly-CSharp
+            m_ObjectArgumentAssemblyTypeName: VideoTime_obj, Assembly-CSharp
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -1364,7 +1368,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ecb54e3329c26c4496ffbc4d0f5b707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChoiceTime: 0
+  choiceanimator: []
+  ChoiceTime: 3.16
   button: {fileID: 1586773228}
   RightAnwser: 0
 --- !u!114 &1586773236
@@ -1661,9 +1666,9 @@ MonoBehaviour:
           m_MethodName: MouseClick
           m_Mode: 2
           m_Arguments:
-            m_ObjectArgument: {fileID: 11400000, guid: afdb116ffa2e1504f8e7a3b7ddd2bc66,
+            m_ObjectArgument: {fileID: 11400000, guid: 04733a80f28fffb44b4be08eaa135e21,
               type: 2}
-            m_ObjectArgumentAssemblyTypeName: VideoTime, Assembly-CSharp
+            m_ObjectArgumentAssemblyTypeName: VideoTime_obj, Assembly-CSharp
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -1681,6 +1686,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ecb54e3329c26c4496ffbc4d0f5b707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  choiceanimator: []
   ChoiceTime: 0
   button: {fileID: 2032953686}
   RightAnwser: 1
