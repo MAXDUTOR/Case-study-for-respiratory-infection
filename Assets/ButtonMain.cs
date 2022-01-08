@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ButtonMain : EventScript
+public class ButtonMain : MonoBehaviour
 {
     public double ChoiceTime;
     public GameObject button;
@@ -12,39 +12,49 @@ public class ButtonMain : EventScript
     protected Color CurrentColor;
     protected Image Image;
     protected bool IsPress = false;
-    private EventScript Event;
-    private Animator animator;
-    private Animator ChoiceAnimator;
+    private Animator currentchoiceanimator;
     public bool RightAnwser;
+    protected bool IsReChoice = false;
+    public List<Animator> choiceAnimator;
+    public Animator uIAnimator;
+    public GameObject currentEvent;
+    public GameObject nextEvent;
 
-    // Start is called before the first frame update
-    void Start()
+    void Start ()
     {
         Image = button.GetComponent<Image>();
         ScaleChange = new Vector3(0.01f, 0.01f);
-        Event = GameObject.Find("Event 01").GetComponent<EventScript>();
-        animator = GameObject.Find("Event 01").GetComponent<Animator>();
-        ChoiceAnimator = GetComponent<Animator>();
+        currentchoiceanimator = GetComponent<Animator>();
         
     }
 
-    // Update is called once per frame
     void Update()
     {
-        //Debug.Log(CurrentColor);
     }
 
     public IEnumerator ChoicePlayTime()
     {
         yield return new WaitForSeconds((float)ChoiceTime);
-        Debug.Log("Show");
-        ChoiceAnimator.SetTrigger("Show");
-        animator.SetTrigger("Show");
+        EventScript.instance.player.Pause();
 
-        for (int i = 0; i < Event.choiceanimator.Count; i++)
+        if (RightAnwser == false)
         {
-            Event.choiceanimator[i].SetBool("Show", true);
+            // if answer is wrong
+            currentchoiceanimator.SetBool("Show", true);
+            uIAnimator.SetTrigger("Show");
+
+            for (int i = 0; i < choiceAnimator.Count; i++)
+            {
+                choiceAnimator[i].SetBool("Show", true);
+            }
         }
+        else
+        {
+            //if right
+            currentEvent.SetActive(false);
+            nextEvent.SetActive(true);
+        }
+
     }
 
     public IEnumerator MouseInAnimation()
@@ -76,18 +86,17 @@ public class ButtonMain : EventScript
 
     public void MouseClick(VideoTime_obj timeObj)
     {
-        timeObj.videoTime.GetTime();
-        Event.Play();
+        EventScript.instance.player.time = timeObj.videoTime.GetTime();
+        EventScript.instance.player.Play();
         RemoveButton();
-        animator.SetBool("Show", false);
+        uIAnimator.SetBool("Show", false);
+        currentchoiceanimator.SetBool("Choosed", true);
 
-
-        for (int i = 0; i < Event.choiceanimator.Count; i++) {
-            Event.choiceanimator[i].SetTrigger("Choosed");
-            Event.choiceanimator[i].SetBool("Show",false);
+        for (int i = 0; i < choiceAnimator.Count; i++) {
+            choiceAnimator[i].SetBool("Show",false);
                 }
 
-        animator.SetBool("First Time Play", false);
+        uIAnimator.SetBool("First Time Play", false);
         StartCoroutine(ChoicePlayTime());
     }
 
@@ -95,10 +104,20 @@ public class ButtonMain : EventScript
     {
         if (RightAnwser != true)
         {
-            ChoiceAnimator.SetTrigger("Choosed");
+            currentchoiceanimator.SetBool("Choosed", true);
         }
         else
-            ChoiceAnimator.SetBool("Show", false);
+        {
+            currentchoiceanimator.SetBool("Show", false);
+        }
 
     }
+
+    public void SetTrigger(string name,bool value)
+    {
+        for (int i = 0; i < choiceAnimator.Count; i++){
+            choiceAnimator[i].SetBool(name, true);
+        }
+    }
+    
 }

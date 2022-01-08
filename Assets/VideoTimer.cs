@@ -9,6 +9,8 @@ public class VideoTimer : MonoBehaviour
     public Animator EventAnimator;
     private EventScript EventScript;
 
+    private bool IsPlaying = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +21,14 @@ public class VideoTimer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        EventAnimator.SetFloat("TimeStart", (float)Player.time);
+        if (EventAnimator != null && !IsPlaying)
+        {
+            if((float)Player.time > 18f)
+            {
+                EventAnimator.SetFloat("TimeStart", (float)Player.time);
+                IsPlaying = true;
+            }
+        }
     }
 
     public double Time { get { return Player.time; } }

@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Button_01 : ButtonMain
-{
-    // Start is called before the first frame update
+public class Event_02 : EventMain {
+    public Animator uIAnimator;
+
     void Start()
     {
-        
+        uIAnimator.SetBool("Show", true);
+        EventScript.instance.player.Play();
     }
 
     // Update is called once per frame

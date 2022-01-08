@@ -6,48 +6,63 @@ using UnityEngine.Video;
 
 public class EventScript : MonoBehaviour
 {
+    public static EventScript instance;
     private VideoTimer Timer;
-    private VideoPlayer Player;
-    public List<Animator> choiceanimator;
+    public List<Animator> uIAnimator;
+    public List<GameObject> gameObjects;
+    public List<float> delaysTime;
+    public VideoPlayer player { get; private set; }
 
-    protected bool IsReChoice = false;
 
-    void Start()
+     protected void Start()
     {
-        Player = GameObject.Find("Demo-01-00.19.19.12").GetComponent<VideoPlayer>();
+        player = GameObject.Find("Demo-01-00.19.19.12").GetComponent<VideoPlayer>();
         Timer = GameObject.Find("Video Player").GetComponent<VideoTimer>();
     }
-
-    // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    public void Pause()
-    {
-        if (IsReChoice == false)
+        //Skip to Question 1
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            Debug.Log("Pause");
-            Player.Pause();
-            IsReChoice = true;
-
-            for (int i = 0; i < choiceanimator.Count; i++)
-            {
-                choiceanimator[i].SetBool("Show",true);
-                //choiceanimator[i].SetBool("Show",false);
-            }
-            
+            VideoTime time_15s = new VideoTime(0, 17, 0);
+            player.time = time_15s.GetTime();
+            uIAnimator[0].SetBool("First Time Play", true);
         }
 
-        
+        //Skip to Question 2
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            for (int i = 0; i < gameObjects.Count; i++)
+            {
+                gameObjects[i].SetActive(false);
+            }
+
+            VideoTime section2 = new VideoTime(0, 24, 21);
+           player.time = section2.GetTime();
+
+            gameObjects[1].SetActive(true);
+            uIAnimator[1].SetBool("Show", true);
+        }
     }
 
-    public void Play()
+    private void Awake()
     {
-        Player.Play();
+        if (instance != null && instance != this)
+        {
+            Destroy(this.gameObject);
+            return;//Avoid doing anything else
+        }
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
     }
+    
+    public IEnumerator Delays(int index)
+    {
+        yield return new WaitForSeconds(delaysTime[index]);
 
-
+    }
 
 }
