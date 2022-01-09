@@ -12,10 +12,10 @@ public class ButtonMain : MonoBehaviour
     protected Color CurrentColor;
     protected Image Image;
     protected bool IsPress = false;
-    private Animator currentchoiceanimator;
+    public List<Animator> choiceAnimator;
+    private Animator currentAnimator;
     public bool RightAnwser;
     protected bool IsReChoice = false;
-    public List<Animator> choiceAnimator;
     public Animator uIAnimator;
     public GameObject currentEvent;
     public GameObject nextEvent;
@@ -23,8 +23,8 @@ public class ButtonMain : MonoBehaviour
     void Start ()
     {
         Image = button.GetComponent<Image>();
+        currentAnimator = GetComponent<Animator>();
         ScaleChange = new Vector3(0.01f, 0.01f);
-        currentchoiceanimator = GetComponent<Animator>();
         
     }
 
@@ -36,25 +36,13 @@ public class ButtonMain : MonoBehaviour
     {
         yield return new WaitForSeconds((float)ChoiceTime);
         EventScript.instance.player.Pause();
-
-        if (RightAnwser == false)
-        {
-            // if answer is wrong
-            currentchoiceanimator.SetBool("Show", true);
-            uIAnimator.SetTrigger("Show");
+            currentAnimator.SetBool("Show", true);
+            uIAnimator.SetTrigger("Show UI");
 
             for (int i = 0; i < choiceAnimator.Count; i++)
             {
                 choiceAnimator[i].SetBool("Show", true);
             }
-        }
-        else
-        {
-            //if right
-            currentEvent.SetActive(false);
-            nextEvent.SetActive(true);
-        }
-
     }
 
     public IEnumerator MouseInAnimation()
@@ -89,35 +77,60 @@ public class ButtonMain : MonoBehaviour
         EventScript.instance.player.time = timeObj.videoTime.GetTime();
         EventScript.instance.player.Play();
         RemoveButton();
-        uIAnimator.SetBool("Show", false);
-        currentchoiceanimator.SetBool("Choosed", true);
+        uIAnimator.SetTrigger("Hide UI");
+        currentAnimator.SetBool("Choosed", true);
 
-        for (int i = 0; i < choiceAnimator.Count; i++) {
-            choiceAnimator[i].SetBool("Show",false);
-                }
-
-        uIAnimator.SetBool("First Time Play", false);
-        StartCoroutine(ChoicePlayTime());
+        if(RightAnwser != false)
+        {
+            nextEvent.SetActive(true);
+            currentEvent.SetActive(false);
+        }
+        else
+        {
+            for (int i = 0; i < choiceAnimator.Count; i++)
+            {
+                choiceAnimator[i].SetBool("Show", false);
+            }
+            StartCoroutine(ChoicePlayTime());
+        }
+            AllChoosedCheck();
     }
 
     public void RemoveButton()
     {
         if (RightAnwser != true)
         {
-            currentchoiceanimator.SetBool("Choosed", true);
+            currentAnimator.SetBool("Choosed", true);
         }
         else
         {
-            currentchoiceanimator.SetBool("Show", false);
+            currentAnimator.SetBool("Show", false);
         }
 
     }
 
-    public void SetTrigger(string name,bool value)
+    public void AllChoosedCheck()
     {
-        for (int i = 0; i < choiceAnimator.Count; i++){
-            choiceAnimator[i].SetBool(name, true);
+        bool allChoosed = true;
+        for (int i = 0; i < choiceAnimator.Count; i++)
+        {
+            if (choiceAnimator[i].GetBool("Choosed"))
+            {
+                allChoosed = false;
+                break;
+            }
         }
+        if (allChoosed)
+        {
+            nextEvent.SetActive(true) ;
+            gameObject.SetActive(false);
+            }
+        else
+        {
+
+        }
+        }
+               
     }
+
     
-}

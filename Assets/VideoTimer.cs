@@ -6,29 +6,25 @@ using UnityEngine.Video;
 public class VideoTimer : MonoBehaviour
 {
     private VideoPlayer Player;
+    public GameObject startEvent;
     public Animator EventAnimator;
-    private EventScript EventScript;
 
-    private bool IsPlaying = false;
 
-    // Start is called before the first frame update
     void Start()
     {
-        EventScript = GameObject.Find("Event 01").GetComponent<EventScript>();
-        Player = GameObject.Find("Demo-01-00.19.19.12").GetComponent<VideoPlayer>();
+        //Player = GameObject.Find("Demo-01-00.19.19.12").GetComponent<VideoPlayer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (EventAnimator != null && !IsPlaying)
-        {
-            if((float)Player.time > 18f)
-            {
-                EventAnimator.SetFloat("TimeStart", (float)Player.time);
-                IsPlaying = true;
-            }
-        }
+
+    }
+
+    public IEnumerator DelayThanPause()
+    {
+        yield return new WaitForSeconds(0.44f);
+        EventAnimator.SetFloat("TimeStart", (float)Player.time);
     }
 
     public double Time { get { return Player.time; } }

@@ -5,33 +5,21 @@ using UnityEngine;
 public class EventMain : MonoBehaviour
 {
     public GameObject nextEvent;
-    protected GameObject currentEvent;
+    protected Animator currentEventAnimator;
     protected bool isRechoice = false;
 
     [SerializeField]
-    protected List<Animator> choiceAnimator;
-    // Start is called before the first frame update
+    public List<Animator> choiceAnimator;
+
     public void Start()
     {
-        
+        currentEventAnimator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
         
-    }
-    public void NextEvent()
-    {
-        if (nextEvent != null)
-        {
-            nextEvent.SetActive(true);
-        }
-    }
-
-    public void EndEvent()
-    {
-        currentEvent.SetActive(false);
     }
 
     public void Pause()
@@ -45,7 +33,6 @@ public class EventMain : MonoBehaviour
             for (int i = 0; i < choiceAnimator.Count; i++)
             {
                 choiceAnimator[i].SetBool("Show", true);
-
             }
         }
     }
