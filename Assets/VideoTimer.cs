@@ -12,10 +12,8 @@ public class VideoTimer : MonoBehaviour
 
     void Start()
     {
-        //Player = GameObject.Find("Demo-01-00.19.19.12").GetComponent<VideoPlayer>();
     }
 
-    // Update is called once per frame
     void Update()
     {
 

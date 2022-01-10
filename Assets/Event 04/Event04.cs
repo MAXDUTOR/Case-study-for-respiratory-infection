@@ -20,7 +20,7 @@ public class Event04 : EventMain
     IEnumerator DelaysThanPause()
     {
         yield return new WaitForSeconds(17.72f);
-        EventScript.instance.player.Pause();
+        EventScript.instance.playerList[4].Pause();
         currentEventAnimator.SetTrigger("Start Event");
 
         for (int i = 0; i < choiceAnimator.Count; i++)

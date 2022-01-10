@@ -5,12 +5,10 @@ using UnityEngine.UI;
 
 public class ButtonMain : MonoBehaviour
 {
+    
     public double ChoiceTime;
-    public GameObject button;
+    public bool replay;
     protected Vector3 ScaleChange;
-    protected float ColorChange;
-    protected Color CurrentColor;
-    protected Image Image;
     protected bool IsPress = false;
     public List<Animator> choiceAnimator;
     private Animator currentAnimator;
@@ -22,20 +20,21 @@ public class ButtonMain : MonoBehaviour
 
     void Start ()
     {
-        Image = button.GetComponent<Image>();
         currentAnimator = GetComponent<Animator>();
         ScaleChange = new Vector3(0.01f, 0.01f);
-        
     }
 
     void Update()
     {
     }
 
-    public IEnumerator ChoicePlayTime()
+    public IEnumerator ChoicePlayTime(int index)
     {
+        //if you have choosed wrong answer or 
+
         yield return new WaitForSeconds((float)ChoiceTime);
-        EventScript.instance.player.Pause();
+
+        EventScript.instance.playerList[index].Pause();
             currentAnimator.SetBool("Show", true);
             uIAnimator.SetTrigger("Show UI");
 
@@ -43,13 +42,14 @@ public class ButtonMain : MonoBehaviour
             {
                 choiceAnimator[i].SetBool("Show", true);
             }
+
     }
 
     public IEnumerator MouseInAnimation()
     {
         for (int i = 0; i < 15; i++)
         {
-            button.transform.localScale += ScaleChange;
+            gameObject.transform.localScale += ScaleChange;
             yield return null;
         }
 
@@ -58,7 +58,7 @@ public class ButtonMain : MonoBehaviour
     {
         for (int i = 0; i < 15; i++)
         {
-            button.transform.localScale -= ScaleChange;
+            gameObject.transform.localScale -= ScaleChange;
             yield return null;
         }
     }
@@ -72,10 +72,10 @@ public class ButtonMain : MonoBehaviour
         StartCoroutine(MouseOutAnimation());
     }
 
-    public void MouseClick(VideoTime_obj timeObj)
+    public void MouseClick(int index)
     {
-        EventScript.instance.player.time = timeObj.videoTime.GetTime();
-        EventScript.instance.player.Play();
+        EventScript.instance.playerList[index].time = timeObj.videoTime.GetTime();
+        EventScript.instance.playerList[index].Play();
         RemoveButton();
         uIAnimator.SetTrigger("Hide UI");
         currentAnimator.SetBool("Choosed", true);
@@ -91,7 +91,7 @@ public class ButtonMain : MonoBehaviour
             {
                 choiceAnimator[i].SetBool("Show", false);
             }
-            StartCoroutine(ChoicePlayTime());
+            StartCoroutine(ChoicePlayTime(index));
         }
             AllChoosedCheck();
     }
@@ -114,21 +114,18 @@ public class ButtonMain : MonoBehaviour
         bool allChoosed = true;
         for (int i = 0; i < choiceAnimator.Count; i++)
         {
-            if (choiceAnimator[i].GetBool("Choosed"))
+            if (!choiceAnimator[i].GetBool("Choosed"))
             {
                 allChoosed = false;
                 break;
             }
         }
+
         if (allChoosed)
         {
             nextEvent.SetActive(true) ;
             gameObject.SetActive(false);
             }
-        else
-        {
-
-        }
         }
                
     }

@@ -39,12 +39,12 @@ public class Event_05 : MonoBehaviour
             EventScript.instance.ShowWrongImage();
         }
         uIAnimator.SetTrigger("Hide UI");
-        EventScript.instance.player.Play();
+        EventScript.instance.playerList[5].Play();
     }
     IEnumerator DelaysThanPause()
     {
         yield return new WaitForSeconds(4.28f);
-        EventScript.instance.player.Pause();
+        EventScript.instance.playerList[5].Pause();
         uIAnimator.SetTrigger("Start Event");
     }
 }

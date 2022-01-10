@@ -22,12 +22,12 @@ public class EventMain : MonoBehaviour
         
     }
 
-    public void Pause()
+    public void Pause(int index)
     {
         if (isRechoice == false)
         {
             Debug.Log("Pause");
-            EventScript.instance.player.Pause();
+            EventScript.instance.playerList[index].Pause();
             isRechoice = true;
 
             for (int i = 0; i < choiceAnimator.Count; i++)

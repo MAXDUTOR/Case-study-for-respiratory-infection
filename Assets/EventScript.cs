@@ -8,24 +8,22 @@ public class EventScript : MonoBehaviour
 {
     public static EventScript instance;
     private VideoTimer timer;
+    public List<VideoPlayer> playerList;
     public List<Animator> eventAnimator;
     public Animator answerAnimator;
     public List<GameObject> events;
     public List<float> delaysTime;
     public GameObject videoPlayer;
-    public VideoPlayer player;
-    public VideoPlayer introPlayer;
-
 
     void Start()
     {
-        //timer = GameObject.Find("Demo-01-00.19.19.12").GetComponent<VideoTimer>();
-        introPlayer.loopPointReached += ChangeVideo;
+        playerList[0].playOnAwake = true;
     }
+
     public void ChangeVideo(UnityEngine.Video.VideoPlayer thisPlayer)
     {
         videoPlayer.SetActive(true);
-        player.Play();
+        playerList[0].Play();
         StartEvent();
     }
     void Update()
@@ -33,15 +31,14 @@ public class EventScript : MonoBehaviour
         //Skip to Qustion 1
         if (Input.GetKeyUp(KeyCode.Alpha1))
         {
-            VideoTime videoTime1 = new VideoTime(1,35,0);
-            introPlayer.time = videoTime1.GetTime();
+            
         }
 
         //Skip to Question 2
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             VideoTime section2 = new VideoTime(0, 24, 21);
-           player.time = section2.GetTime();
+            playerList[2].time = section2.GetTime();
 
             events[1].SetActive(true);
         }
@@ -50,21 +47,21 @@ public class EventScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             VideoTime question3 = new VideoTime(0,33,11);
-            player.time = question3.GetTime();
+            playerList[3].time = question3.GetTime();
         }
 
         //Skip to Qustion 4
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             VideoTime question4 = new VideoTime(1, 16, 06);
-            player.time = question4.GetTime();
-            StartCoroutine(DelaysThenPause2(2.84f));
+            playerList[4].time = question4.GetTime();
+            StartCoroutine(DelaysThenPause2(2.84f,4));
         }
         //Skip to Qustion 5
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {
             VideoTime question5 = new VideoTime(4, 27, 03);
-            player.time=question5.GetTime();
+            playerList[5].time=question5.GetTime();
         }
     }
     
@@ -87,37 +84,37 @@ public class EventScript : MonoBehaviour
         }
     }
 
-    public IEnumerator DelaysThenPause(double time,double playTime, Animator animator, string triggerName)
+    public IEnumerator DelaysThenPause(double time,double playTime, Animator animator, string triggerName,int i)
     {
         yield return new WaitForSeconds((float)time);
         animator.SetTrigger(triggerName);
-        player.Pause();
+        playerList[i].Pause();
     }
-    public IEnumerator DelaysThenPause0(double time,Animator animator,string triggerName)
+    public IEnumerator DelaysThenPause0(double time,Animator animator,string triggerName, int i)
     {
         yield return new WaitForSeconds((float)time);
         animator.SetTrigger(triggerName);
-        player.Pause();
+        playerList[i].Pause();
     }
 
-    public IEnumerator DelaysThenPause1(double time)
+    public IEnumerator DelaysThenPause1(double time, int i)
     {
         yield return new WaitForSeconds((float)time);
         eventAnimator[2].SetTrigger("Show UI");
-        player.Pause();
+        playerList[i].Pause();
     }
-    public IEnumerator DelaysThenPause2(double time)
+    public IEnumerator DelaysThenPause2(double time, int i)
     {
         yield return new WaitForSeconds((float)time);
         eventAnimator[3].SetTrigger("Show UI");
-        
-        player.Pause();
+
+        playerList[i].Pause();
     }
 
-    public void PlayAtTime(double time)
+    public void PlayAtTime(double time, int i)
     {
-        player.time = time;
-        player.Play();
+        playerList[i].time = time;
+        playerList[i].Play();
     }
     
     public void ShowCorrectImage()

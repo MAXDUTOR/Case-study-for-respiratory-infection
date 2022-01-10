@@ -18,7 +18,7 @@ public class TextAnswerScript : MonoBehaviour
     void Start()
     {
        this.answer = new List<string>();
-        StartCoroutine(DelaysThanStart());
+        StartCoroutine(DelaysThanStart(3));
     }
 
     // Update is called once per frame
@@ -43,12 +43,12 @@ public class TextAnswerScript : MonoBehaviour
         {
             EventScript.instance.ShowWrongImage();  
         }
-        EventScript.instance.PlayAtTime(nextSectionTime[section]);
+        EventScript.instance.PlayAtTime(nextSectionTime[section],section);
         eventAnimator.SetTrigger("Hide");
 
         if (rightAnswerDuration[section] != 0)
         {
-            StartCoroutine(EventScript.instance.DelaysThenPause(rightAnswerDuration[section], section, eventAnimator, "Show UI"));
+            StartCoroutine(EventScript.instance.DelaysThenPause(rightAnswerDuration[section], section, eventAnimator, "Show UI", section));
         }
         else
         {
@@ -57,10 +57,10 @@ public class TextAnswerScript : MonoBehaviour
         }
     }
 
-    IEnumerator DelaysThanStart()
+    IEnumerator DelaysThanStart(int i)
     {
         yield return new WaitForSeconds(12.04f);
-        EventScript.instance.player.Pause();
+        EventScript.instance.playerList[i].Pause();
         eventAnimator.SetTrigger("Show UI");
     }
 }

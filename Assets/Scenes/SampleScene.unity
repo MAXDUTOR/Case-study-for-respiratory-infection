@@ -394,8 +394,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ChoiceTime: 7.2
-  button: {fileID: 209322375}
-  choiceAnimator: []
+  replay: 0
+  choiceAnimator:
+  - {fileID: 209322380}
+  - {fileID: 627489233}
   RightAnwser: 1
   uIAnimator: {fileID: 1760130859}
   currentEvent: {fileID: 1760130856}
@@ -1241,7 +1243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ChoiceTime: 14.04
-  button: {fileID: 425398714}
+  replay: 0
   choiceAnimator:
   - {fileID: 1124025989}
   - {fileID: 468316219}
@@ -1334,7 +1336,7 @@ Transform:
   m_GameObject: {fileID: 435520631}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -972.78, y: -532.33, z: 0}
-  m_LocalScale: {x: 2.0689657, y: 2.0689657, z: 2.0689657}
+  m_LocalScale: {x: 1.0983303, y: 1.0983303, z: 1.0983303}
   m_Children: []
   m_Father: {fileID: 1503729490}
   m_RootOrder: 6
@@ -1671,7 +1673,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ChoiceTime: 36.04
-  button: {fileID: 468316215}
+  replay: 0
   choiceAnimator:
   - {fileID: 1124025989}
   - {fileID: 468316219}
@@ -2275,8 +2277,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ChoiceTime: 4.8
-  button: {fileID: 627489228}
-  choiceAnimator: []
+  replay: 1
+  choiceAnimator:
+  - {fileID: 209322380}
+  - {fileID: 627489233}
   RightAnwser: 0
   uIAnimator: {fileID: 1760130859}
   currentEvent: {fileID: 1760130856}
@@ -2789,7 +2793,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ChoiceTime: 53.16
-  button: {fileID: 678419342}
+  replay: 0
   choiceAnimator:
   - {fileID: 1124025989}
   - {fileID: 468316219}
@@ -3264,7 +3268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ChoiceTime: 31.72
-  button: {fileID: 877609000}
+  replay: 0
   choiceAnimator:
   - {fileID: 1124025989}
   - {fileID: 468316219}
@@ -3534,7 +3538,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &898918719
 Transform:
   m_ObjectHideFlags: 0
@@ -3546,7 +3550,7 @@ Transform:
   m_LocalPosition: {x: 0.2718148, y: 0.19444443, z: 89.86929}
   m_LocalScale: {x: 0.9166577, y: 0.9166577, z: 0.9166577}
   m_Children:
-  - {fileID: 1128277643}
+  - {fileID: 1298454077}
   - {fileID: 1586773229}
   - {fileID: 1411809068}
   - {fileID: 2032953687}
@@ -3773,6 +3777,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db879104e048627429b6785ee53496cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerList:
+  - {fileID: 1959622421}
+  - {fileID: 1298454078}
   eventAnimator: []
   answerAnimator: {fileID: 2130039794}
   events:
@@ -3786,8 +3793,6 @@ MonoBehaviour:
   - 0
   - 0
   videoPlayer: {fileID: 961658727}
-  player: {fileID: 961658728}
-  introPlayer: {fileID: 1959622421}
 --- !u!4 &1053600105
 Transform:
   m_ObjectHideFlags: 0
@@ -3800,6 +3805,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2130039793}
+  - {fileID: 1128277643}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3915,7 +3921,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ChoiceTime: 15.88
-  button: {fileID: 1124025984}
+  replay: 0
   choiceAnimator:
   - {fileID: 1124025989}
   - {fileID: 468316219}
@@ -3997,7 +4003,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1128277643
 Transform:
   m_ObjectHideFlags: 0
@@ -4006,8 +4012,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1128277642}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.2965306, y: -4.802277, z: 0}
-  m_LocalScale: {x: 0.01642036, y: 0.01642036, z: 0.01642036}
+  m_LocalPosition: {x: 1.7274795, y: -3.7729583, z: -1034.9005}
+  m_LocalScale: {x: 0.01505185, y: 0.01505185, z: 0.01505185}
   m_Children:
   - {fileID: 609993135}
   - {fileID: 1323118273}
@@ -4015,8 +4021,8 @@ Transform:
   - {fileID: 906489103}
   - {fileID: 2086669797}
   - {fileID: 1893366503}
-  m_Father: {fileID: 898918719}
-  m_RootOrder: 0
+  m_Father: {fileID: 1053600105}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1243295829
 GameObject:
@@ -4213,8 +4219,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1254622123}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -959.41, y: -543.284, z: 0}
-  m_LocalScale: {x: 1.9955852, y: 1.9955852, z: 1.9955852}
+  m_LocalPosition: {x: -959.41, y: -541.46, z: 0}
+  m_LocalScale: {x: 1.0172915, y: 1.017292, z: 1.017292}
   m_Children: []
   m_Father: {fileID: 1503729490}
   m_RootOrder: 7
@@ -4269,6 +4275,71 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1298454076
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1298454077}
+  - component: {fileID: 1298454078}
+  m_Layer: 0
+  m_Name: Event 01 Clip
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1298454077
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1298454076}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.29652816, y: -0.21212329, z: -98.0402}
+  m_LocalScale: {x: 1.0909199, y: 1.0909199, z: 1.0909199}
+  m_Children: []
+  m_Father: {fileID: 898918719}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!328 &1298454078
+VideoPlayer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1298454076}
+  m_Enabled: 1
+  m_VideoClip: {fileID: 32900000, guid: 8b0758a6b194c8f4181b3fdd5d27f10b, type: 3}
+  m_TargetCameraAlpha: 1
+  m_TargetCamera3DLayout: 0
+  m_TargetCamera: {fileID: 519420031}
+  m_TargetTexture: {fileID: 0}
+  m_TimeReference: 0
+  m_TargetMaterialRenderer: {fileID: 0}
+  m_TargetMaterialProperty: _MainTex
+  m_RenderMode: 0
+  m_AspectRatio: 2
+  m_DataSource: 0
+  m_PlaybackSpeed: 1
+  m_AudioOutputMode: 2
+  m_TargetAudioSources:
+  - {fileID: 0}
+  m_DirectAudioVolumes:
+  - 1
+  m_Url: 
+  m_EnabledAudioTracks: 01
+  m_DirectAudioMutes: 00
+  m_ControlledAudioTrackCount: 1
+  m_PlayOnAwake: 1
+  m_SkipOnDrop: 1
+  m_Looping: 0
+  m_WaitForFirstFrame: 1
+  m_FrameReadyEventEnabled: 0
 --- !u!1 &1323118272
 GameObject:
   m_ObjectHideFlags: 0
@@ -4563,7 +4634,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ChoiceTime: 3.32
-  button: {fileID: 1411809067}
+  replay: 0
   choiceAnimator:
   - {fileID: 1586773233}
   - {fileID: 1411809075}
@@ -5134,7 +5205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ChoiceTime: 3.16
-  button: {fileID: 1586773228}
+  replay: 0
   choiceAnimator:
   - {fileID: 1586773233}
   - {fileID: 1411809075}
@@ -5811,7 +5882,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1959622420
 Transform:
   m_ObjectHideFlags: 0
@@ -6242,7 +6313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ChoiceTime: 3.88
-  button: {fileID: 2032953686}
+  replay: 0
   choiceAnimator:
   - {fileID: 1586773233}
   - {fileID: 1411809075}
