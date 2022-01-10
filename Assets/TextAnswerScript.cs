@@ -48,7 +48,7 @@ public class TextAnswerScript : MonoBehaviour
 
         if (rightAnswerDuration[section] != 0)
         {
-            StartCoroutine(EventScript.instance.DelaysThenPause(rightAnswerDuration[section], section, eventAnimator, "Show UI", section));
+            //StartCoroutine(EventScript.instance.DelaysThenPause(rightAnswerDuration[section], section, eventAnimator, "Show UI", section));
         }
         else
         {

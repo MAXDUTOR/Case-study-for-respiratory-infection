@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Event_01 : EventMain {
+
     void Start()
     {
         base.Start();
-        StartCoroutine(DelaysThanPause(5.56f));
+        eventNumber = 1;
+        StartCoroutine(DelaysThanPause(5.40f));
     }
 
     // Update is called once per frame
@@ -17,11 +19,13 @@ public class Event_01 : EventMain {
     
     public IEnumerator DelaysThanPause(float time)
     {
+        Debug.Log("Start pause coroutine");
         yield return new WaitForSeconds(time);
-        EventScript.instance.playerList[1].Pause();
-        currentEventAnimator.SetBool("Show",true);
+        EventScript.instance.playerList[eventNumber].Pause();
+        Debug.Log("End Pause");
+        currentEventAnimator.SetTrigger("Show UI");
 
-        for(int i = 0;choiceAnimator.Count > 0; i++)
+        for(int i = 0;i < (choiceAnimator.Count); i++)
 
         {
             choiceAnimator[i].SetBool("Show", true);

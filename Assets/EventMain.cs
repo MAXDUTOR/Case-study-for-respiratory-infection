@@ -5,8 +5,10 @@ using UnityEngine;
 public class EventMain : MonoBehaviour
 {
     public GameObject nextEvent;
+    public bool nextEventIfChoosedAllChoice;
     protected Animator currentEventAnimator;
     protected bool isRechoice = false;
+    public int eventNumber { get; protected set; }
 
     [SerializeField]
     public List<Animator> choiceAnimator;
@@ -20,20 +22,5 @@ public class EventMain : MonoBehaviour
     void Update()
     {
         
-    }
-
-    public void Pause(int index)
-    {
-        if (isRechoice == false)
-        {
-            Debug.Log("Pause");
-            EventScript.instance.playerList[index].Pause();
-            isRechoice = true;
-
-            for (int i = 0; i < choiceAnimator.Count; i++)
-            {
-                choiceAnimator[i].SetBool("Show", true);
-            }
-        }
     }
 }

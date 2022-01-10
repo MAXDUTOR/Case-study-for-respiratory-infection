@@ -393,15 +393,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ecb54e3329c26c4496ffbc4d0f5b707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChoiceTime: 7.2
-  replay: 0
-  choiceAnimator:
-  - {fileID: 209322380}
-  - {fileID: 627489233}
-  RightAnwser: 1
-  uIAnimator: {fileID: 1760130859}
-  currentEvent: {fileID: 1760130856}
-  nextEvent: {fileID: 777445892}
+  choiceDuration: 0
+  answerPositionTime: 0
+  rightAnwser: 0
 --- !u!223 &209322379
 Canvas:
   m_ObjectHideFlags: 0
@@ -548,7 +542,7 @@ RectTransform:
   m_Children:
   - {fileID: 517133399}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -885,7 +879,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &375717278
 GameObject:
@@ -1242,18 +1236,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ecb54e3329c26c4496ffbc4d0f5b707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChoiceTime: 14.04
-  replay: 0
-  choiceAnimator:
-  - {fileID: 1124025989}
-  - {fileID: 468316219}
-  - {fileID: 678419346}
-  - {fileID: 425398718}
-  - {fileID: 877609004}
-  RightAnwser: 0
-  uIAnimator: {fileID: 1387560013}
-  currentEvent: {fileID: 1387560011}
-  nextEvent: {fileID: 1616352420}
+  choiceDuration: 0
+  answerPositionTime: 0
+  rightAnwser: 0
 --- !u!95 &425398718
 Animator:
   serializedVersion: 3
@@ -1672,18 +1657,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ecb54e3329c26c4496ffbc4d0f5b707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChoiceTime: 36.04
-  replay: 0
-  choiceAnimator:
-  - {fileID: 1124025989}
-  - {fileID: 468316219}
-  - {fileID: 678419346}
-  - {fileID: 425398718}
-  - {fileID: 877609004}
-  RightAnwser: 0
-  uIAnimator: {fileID: 1387560013}
-  currentEvent: {fileID: 1387560011}
-  nextEvent: {fileID: 1616352420}
+  choiceDuration: 0
+  answerPositionTime: 0
+  rightAnwser: 0
 --- !u!95 &468316219
 Animator:
   serializedVersion: 3
@@ -2276,15 +2252,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ecb54e3329c26c4496ffbc4d0f5b707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChoiceTime: 4.8
-  replay: 1
-  choiceAnimator:
-  - {fileID: 209322380}
-  - {fileID: 627489233}
-  RightAnwser: 0
-  uIAnimator: {fileID: 1760130859}
-  currentEvent: {fileID: 1760130856}
-  nextEvent: {fileID: 777445892}
+  choiceDuration: 0
+  answerPositionTime: 0
+  rightAnwser: 0
 --- !u!223 &627489232
 Canvas:
   m_ObjectHideFlags: 0
@@ -2792,18 +2762,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ecb54e3329c26c4496ffbc4d0f5b707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChoiceTime: 53.16
-  replay: 0
-  choiceAnimator:
-  - {fileID: 1124025989}
-  - {fileID: 468316219}
-  - {fileID: 678419346}
-  - {fileID: 425398718}
-  - {fileID: 877609004}
-  RightAnwser: 0
-  uIAnimator: {fileID: 1387560013}
-  currentEvent: {fileID: 1387560011}
-  nextEvent: {fileID: 1616352420}
+  choiceDuration: 0
+  answerPositionTime: 0
+  rightAnwser: 0
 --- !u!95 &678419346
 Animator:
   serializedVersion: 3
@@ -3061,7 +3022,7 @@ Transform:
   m_Children:
   - {fileID: 1991330359}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &777445894
 Animator:
@@ -3109,53 +3070,6 @@ MonoBehaviour:
   - 16.88
   - 0
   nextEvent: {fileID: 1387560011}
---- !u!1 &855459402
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 855459404}
-  - component: {fileID: 855459405}
-  m_Layer: 0
-  m_Name: Video Player
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &855459404
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 855459402}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.24932241, y: -1.0589877, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 961658729}
-  - {fileID: 1959622420}
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &855459405
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 855459402}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25b229d3f121e244cb59c3c9b960cbc4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startEvent: {fileID: 898918718}
-  EventAnimator: {fileID: 898918720}
 --- !u!1 &877609000
 GameObject:
   m_ObjectHideFlags: 0
@@ -3267,18 +3181,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ecb54e3329c26c4496ffbc4d0f5b707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChoiceTime: 31.72
-  replay: 0
-  choiceAnimator:
-  - {fileID: 1124025989}
-  - {fileID: 468316219}
-  - {fileID: 678419346}
-  - {fileID: 425398718}
-  - {fileID: 877609004}
-  RightAnwser: 0
-  uIAnimator: {fileID: 1387560013}
-  currentEvent: {fileID: 1387560011}
-  nextEvent: {fileID: 1616352420}
+  choiceDuration: 0
+  answerPositionTime: 0
+  rightAnwser: 0
 --- !u!95 &877609004
 Animator:
   serializedVersion: 3
@@ -3555,7 +3460,7 @@ Transform:
   - {fileID: 1411809068}
   - {fileID: 2032953687}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &898918720
 Animator:
@@ -3589,6 +3494,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextEvent: {fileID: 1760130856}
+  nextEventIfChoosedAllChoice: 0
   choiceAnimator:
   - {fileID: 1586773233}
   - {fileID: 1411809075}
@@ -3683,71 +3589,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 906489102}
   m_CullTransparentMesh: 0
---- !u!1 &961658727
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 961658729}
-  - component: {fileID: 961658728}
-  m_Layer: 0
-  m_Name: Demo-01-00.19.19.12
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!328 &961658728
-VideoPlayer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 961658727}
-  m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 4d04385d8d35b054b874cd1e2e4a65a3, type: 3}
-  m_TargetCameraAlpha: 1
-  m_TargetCamera3DLayout: 0
-  m_TargetCamera: {fileID: 519420031}
-  m_TargetTexture: {fileID: 0}
-  m_TimeReference: 0
-  m_TargetMaterialRenderer: {fileID: 0}
-  m_TargetMaterialProperty: _MainTex
-  m_RenderMode: 0
-  m_AspectRatio: 2
-  m_DataSource: 0
-  m_PlaybackSpeed: 1
-  m_AudioOutputMode: 2
-  m_TargetAudioSources:
-  - {fileID: 0}
-  m_DirectAudioVolumes:
-  - 1
-  m_Url: 
-  m_EnabledAudioTracks: 01
-  m_DirectAudioMutes: 00
-  m_ControlledAudioTrackCount: 1
-  m_PlayOnAwake: 1
-  m_SkipOnDrop: 1
-  m_Looping: 0
-  m_WaitForFirstFrame: 1
-  m_FrameReadyEventEnabled: 0
---- !u!4 &961658729
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 961658727}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.24932241, y: 1.0589877, z: 0.45248318}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 855459404}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1053600103
 GameObject:
   m_ObjectHideFlags: 0
@@ -3778,7 +3619,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerList:
-  - {fileID: 1959622421}
+  - {fileID: 0}
   - {fileID: 1298454078}
   eventAnimator: []
   answerAnimator: {fileID: 2130039794}
@@ -3786,13 +3627,6 @@ MonoBehaviour:
   - {fileID: 898918718}
   - {fileID: 1760130856}
   - {fileID: 777445892}
-  delaysTime:
-  - 0
-  - 3.88
-  - 0
-  - 0
-  - 0
-  videoPlayer: {fileID: 961658727}
 --- !u!4 &1053600105
 Transform:
   m_ObjectHideFlags: 0
@@ -3807,7 +3641,7 @@ Transform:
   - {fileID: 2130039793}
   - {fileID: 1128277643}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1124025984
 GameObject:
@@ -3920,18 +3754,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ecb54e3329c26c4496ffbc4d0f5b707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChoiceTime: 15.88
-  replay: 0
-  choiceAnimator:
-  - {fileID: 1124025989}
-  - {fileID: 468316219}
-  - {fileID: 678419346}
-  - {fileID: 425398718}
-  - {fileID: 877609004}
-  RightAnwser: 0
-  uIAnimator: {fileID: 1387560013}
-  currentEvent: {fileID: 1387560011}
-  nextEvent: {fileID: 1616352420}
+  choiceDuration: 0
+  answerPositionTime: 0
+  rightAnwser: 0
 --- !u!95 &1124025989
 Animator:
   serializedVersion: 3
@@ -4338,7 +4163,7 @@ VideoPlayer:
   m_PlayOnAwake: 1
   m_SkipOnDrop: 1
   m_Looping: 0
-  m_WaitForFirstFrame: 1
+  m_WaitForFirstFrame: 0
   m_FrameReadyEventEnabled: 0
 --- !u!1 &1323118272
 GameObject:
@@ -4421,7 +4246,7 @@ Transform:
   m_Children:
   - {fileID: 496046643}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1387560013
 Animator:
@@ -4455,6 +4280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextEvent: {fileID: 0}
+  nextEventIfChoosedAllChoice: 0
   choiceAnimator:
   - {fileID: 1124025989}
   - {fileID: 468316219}
@@ -4611,11 +4437,10 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1411809073}
           m_MethodName: MouseClick
-          m_Mode: 2
+          m_Mode: 1
           m_Arguments:
-            m_ObjectArgument: {fileID: 11400000, guid: dbd3eaa370fccce45838a54e32ae8d1a,
-              type: 2}
-            m_ObjectArgumentAssemblyTypeName: VideoTime_obj, Assembly-CSharp
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -4633,16 +4458,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ecb54e3329c26c4496ffbc4d0f5b707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChoiceTime: 3.32
-  replay: 0
-  choiceAnimator:
-  - {fileID: 1586773233}
-  - {fileID: 1411809075}
-  - {fileID: 2032953691}
-  RightAnwser: 0
-  uIAnimator: {fileID: 898918720}
-  currentEvent: {fileID: 898918718}
-  nextEvent: {fileID: 1760130856}
+  choiceDuration: 3.24
+  answerPositionTime: 5.52
+  rightAnwser: 0
 --- !u!114 &1411809074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5182,11 +5000,10 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1586773235}
           m_MethodName: MouseClick
-          m_Mode: 2
+          m_Mode: 1
           m_Arguments:
-            m_ObjectArgument: {fileID: 11400000, guid: f771ef019cf96b94a97cdafd20e3f1a1,
-              type: 2}
-            m_ObjectArgumentAssemblyTypeName: VideoTime_obj, Assembly-CSharp
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -5204,16 +5021,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ecb54e3329c26c4496ffbc4d0f5b707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChoiceTime: 3.16
-  replay: 0
-  choiceAnimator:
-  - {fileID: 1586773233}
-  - {fileID: 1411809075}
-  - {fileID: 2032953691}
-  RightAnwser: 0
-  uIAnimator: {fileID: 898918720}
-  currentEvent: {fileID: 898918718}
-  nextEvent: {fileID: 1760130856}
+  choiceDuration: 3.16
+  answerPositionTime: 8.8
+  rightAnwser: 0
 --- !u!114 &1586773236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5336,7 +5146,7 @@ Transform:
   m_Children:
   - {fileID: 1503729490}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1616352422
 Animator:
@@ -5534,7 +5344,7 @@ Transform:
   - {fileID: 209322376}
   - {fileID: 627489229}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1760130858
 MonoBehaviour:
@@ -5549,6 +5359,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextEvent: {fileID: 777445892}
+  nextEventIfChoosedAllChoice: 0
   choiceAnimator:
   - {fileID: 209322380}
   - {fileID: 627489233}
@@ -5866,71 +5677,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1902206042}
   m_CullTransparentMesh: 0
---- !u!1 &1959622419
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1959622420}
-  - component: {fileID: 1959622421}
-  m_Layer: 0
-  m_Name: Intro
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1959622420
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1959622419}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.24932241, y: 1.0589877, z: 0.45248318}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 855459404}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!328 &1959622421
-VideoPlayer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1959622419}
-  m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 65ef9123854eafd4d99a953075c5fe6b, type: 3}
-  m_TargetCameraAlpha: 1
-  m_TargetCamera3DLayout: 0
-  m_TargetCamera: {fileID: 519420031}
-  m_TargetTexture: {fileID: 0}
-  m_TimeReference: 0
-  m_TargetMaterialRenderer: {fileID: 0}
-  m_TargetMaterialProperty: _MainTex
-  m_RenderMode: 0
-  m_AspectRatio: 2
-  m_DataSource: 0
-  m_PlaybackSpeed: 1
-  m_AudioOutputMode: 2
-  m_TargetAudioSources:
-  - {fileID: 0}
-  m_DirectAudioVolumes:
-  - 1
-  m_Url: 
-  m_EnabledAudioTracks: 01
-  m_DirectAudioMutes: 00
-  m_ControlledAudioTrackCount: 1
-  m_PlayOnAwake: 1
-  m_SkipOnDrop: 1
-  m_Looping: 0
-  m_WaitForFirstFrame: 1
-  m_FrameReadyEventEnabled: 0
 --- !u!1 &1974494836
 GameObject:
   m_ObjectHideFlags: 0
@@ -6117,10 +5863,10 @@ GameObject:
   - component: {fileID: 2032953690}
   - component: {fileID: 2032953689}
   - component: {fileID: 2032953692}
-  - component: {fileID: 2032953688}
-  - component: {fileID: 2032953693}
-  - component: {fileID: 2032953694}
   - component: {fileID: 2032953691}
+  - component: {fileID: 2032953688}
+  - component: {fileID: 2032953694}
+  - component: {fileID: 2032953693}
   m_Layer: 5
   m_Name: Choice 3
   m_TagString: Untagged
@@ -6290,11 +6036,10 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 2032953694}
           m_MethodName: MouseClick
-          m_Mode: 2
+          m_Mode: 1
           m_Arguments:
-            m_ObjectArgument: {fileID: 11400000, guid: 04733a80f28fffb44b4be08eaa135e21,
-              type: 2}
-            m_ObjectArgumentAssemblyTypeName: VideoTime_obj, Assembly-CSharp
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -6312,16 +6057,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ecb54e3329c26c4496ffbc4d0f5b707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ChoiceTime: 3.88
-  replay: 0
-  choiceAnimator:
-  - {fileID: 1586773233}
-  - {fileID: 1411809075}
-  - {fileID: 2032953691}
-  RightAnwser: 1
-  uIAnimator: {fileID: 898918720}
-  currentEvent: {fileID: 898918718}
-  nextEvent: {fileID: 1760130856}
+  choiceDuration: 0
+  answerPositionTime: 0
+  rightAnwser: 1
 --- !u!1 &2086669796
 GameObject:
   m_ObjectHideFlags: 0
